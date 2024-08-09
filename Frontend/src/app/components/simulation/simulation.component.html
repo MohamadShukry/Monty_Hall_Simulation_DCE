@@ -1,0 +1,78 @@
+
+<div class="total-container">
+<h1>Monty Hall Simulation</h1>
+
+<div class="simulation-container">
+  <form
+    [formGroup]="simulationForm"
+    (ngSubmit)="onSubmit()"
+    class="simulation-form"
+  >
+    <label id="switchDoor-lb">Enter simulation count</label>
+    <div class="form-group">
+      <input
+        id="numberOfSimulations"
+        formControlName="numberOfSimulations"
+        type="number"
+        min="1"
+        required
+        placeholder="Enter simulation count"
+        autocomplete="off"
+      />
+    </div>
+
+    <span>If You want to Switch Door Click the Check Box</span>
+  <br/>
+  <br/>
+  <br/>
+    <div class="form-group">
+      <input
+        type="checkbox"
+        id="switchDoor"
+        name="switchDoor"
+        formControlName="switchDoor"
+        class="form-check-input"
+      />
+      <label for="switchDoor" data-content="Stay with already Choose Door"
+        >Stay with already Choose Door</label
+      >
+    </div>
+
+    <button type="submit" id="submit" class="game-button orange">
+      Run Simulation
+    </button>
+  </form>
+</div>
+
+<div class="button-nav">
+  <button (click)="navigateToGame()" class="game-button nav-btn">
+    Go to Game
+  </button>
+  <button (click)="navigateToHome()" class="game-button red nav-btn">
+    Go Home
+  </button>
+</div>
+
+<div class="container">
+  <div *ngIf="result" class="result-container">
+    <h2 class="title">Simulation Results</h2>
+    <div class="result-content">
+      <div class="result-text">
+        <p><strong>Total Games:</strong> {{ result.totalGames }}</p>
+      <br/>
+        <p><strong>Wins:</strong> {{ result.wins }}</p>
+        <br/>
+        <p>
+          <strong>Win Rate:</strong>
+          {{ (result.wins / result.totalGames) * 100 | number : "1.2-2" }}%
+        </p>
+      </div>
+      <app-simulation-chart [totalGames]="Totalgames" [wins]="wins"></app-simulation-chart>
+    </div>
+  </div>
+  <div *ngIf="errorMessage" class="error-message">
+    {{ errorMessage }}
+  </div>
+</div>
+
+</div>

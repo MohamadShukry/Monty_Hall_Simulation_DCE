@@ -1,0 +1,17 @@
+.chart-container{
+  background-color: rgba(249, 249, 249, 0.7);
+ 
+  justify-content: center;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  border: 2px solid black;
+border-radius: 8px;
+padding: 20px;
+
+}
+
+#MyChart{
+ 
+  width: 400px;
+  height: 400px;
+ 
+}

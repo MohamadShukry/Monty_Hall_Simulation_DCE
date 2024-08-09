@@ -1,0 +1,28 @@
+<h1>Monty Hall Game</h1>
+<div class="content" role="main">
+  <div class="card-container">
+    <a class="door-card" (click)="chooseDoor(1)" target="_blank" rel="noopener">
+      <img width="200" alt="Door Image" src="{{ imagePath[0] }}" />
+    </a>
+
+    <a class="door-card" (click)="chooseDoor(2)" target="_blank" rel="noopener">
+      <img width="200" alt="Door Image" src="{{ imagePath[1] }}" />
+    </a>
+
+    <a class="door-card" (click)="chooseDoor(3)" target="_blank" rel="noopener">
+      <img width="200" alt="Door Image" src="{{ imagePath[2] }}" />
+    </a>
+  </div>
+
+  <div class="g-buttn">
+    <button (click)="changeChoice()" class="game-button orange">Change Choice</button>
+    <button (click)="keepChoice()" class="game-button black">Keep Choice</button>
+  </div>
+
+  <div class="button-nav">
+    <button (click)="navigateToSimulation()" class="game-button nav-btn">Go to simulation</button>
+    <button (click)="navigateToHome()" class="game-button red nav-btn">Go Home</button>
+  </div>
+
+  <app-message [message]="modalMessage" [show]="showModal" (onClose)="handleModalClose()"></app-message>
+</div>
